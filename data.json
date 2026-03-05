@@ -1,0 +1,176 @@
+{
+  "activeTree": "default",
+  "trees": {
+    "default": {
+      "id": "default",
+      "name": "My Skill Tree",
+      "points": 119,
+      "nodes": [
+        {
+          "id": "root",
+          "name": "Fundação",
+          "icon": "⭐",
+          "description": "O início de toda jornada. Desbloqueie para acessar habilidades avançadas.",
+          "x": 317,
+          "y": 279,
+          "state": "unlocked",
+          "level": 1,
+          "maxLevel": 3,
+          "cost": 0,
+          "requires": [],
+          "category": "cat_fisica_1772669579482"
+        },
+        {
+          "id": "skill_1772671152455",
+          "name": "sssss",
+          "icon": "⚡",
+          "description": "sss",
+          "x": 45,
+          "y": 174,
+          "state": "available",
+          "level": 0,
+          "maxLevel": 3,
+          "cost": 2,
+          "requires": [
+            "root"
+          ],
+          "category": "cat_fisica_1772669579482"
+        }
+      ],
+      "flipped": false,
+      "xp": 0,
+      "xpLevel": 1,
+      "achievements": [],
+      "quests": [
+        {
+          "id": "q_addnode",
+          "name": "Adicione uma nova skill",
+          "icon": "➕",
+          "target": "addnode",
+          "amount": 1,
+          "reward": 4,
+          "progress": 0,
+          "done": false
+        },
+        {
+          "id": "q_master1",
+          "name": "Domine 1 skill hoje",
+          "icon": "⭐",
+          "target": "master",
+          "amount": 1,
+          "reward": 6,
+          "progress": 0,
+          "done": false
+        },
+        {
+          "id": "q_unlock1",
+          "name": "Desbloqueie 1 skill hoje",
+          "icon": "🔓",
+          "target": "unlock",
+          "amount": 1,
+          "reward": 3,
+          "progress": 0,
+          "done": false
+        }
+      ],
+      "questDate": "2026-03-04",
+      "completedQuests": 0
+    }
+  },
+  "allCategories": [
+    {
+      "id": "cat_fisica_1772669579482",
+      "label": "FISICA",
+      "icon": "AA",
+      "color": "#ff0000",
+      "builtIn": false
+    },
+    {
+      "id": "cat_math_1772671074464",
+      "label": "MATH",
+      "icon": "📌Math",
+      "color": "#7b61ff",
+      "builtIn": false
+    }
+  ],
+  "uiColors": {
+    "background": "#080c10",
+    "hudBg": "#0d1520",
+    "toolbarBg": "#0d1520",
+    "panelBg": "#080c10",
+    "nodeCircleBg": "#0e141c",
+    "pointsColor": "#e8d96a",
+    "unlockedColor": "#4dd9e8",
+    "masteredColor": "#e05252"
+  },
+  "achievements": {
+    "first_unlock": 1772667270897,
+    "three_unlocked": 1772667270897,
+    "first_master": 1772667270897,
+    "three_mastered": 1772667270897,
+    "rich": 1772667270897,
+    "half_tree": 1772667270897,
+    "full_tree": 1772667270898,
+    "daily_used": 1772667270898,
+    "creative_master": 1772667270898
+  },
+  "pomo": {
+    "totalDone": 0
+  },
+  "dailySkill": {
+    "key": "2026-3-4",
+    "nodeId": "skill_1772666176381"
+  },
+  "dailyUsed": true,
+  "catColors": {
+    "core": {
+      "stroke": "#e8d96a",
+      "glow": "rgba(232,217,106,0.5)",
+      "text": "#e8d96a"
+    },
+    "mental": {
+      "stroke": "#e8d96a",
+      "glow": "rgba(232,217,106,0.4)",
+      "text": "#e8d96a"
+    },
+    "physical": {
+      "stroke": "#e05252",
+      "glow": "rgba(224,82,82,0.5)",
+      "text": "#e05252"
+    },
+    "creative": {
+      "stroke": "#4dd9e8",
+      "glow": "rgba(77,217,232,0.5)",
+      "text": "#4dd9e8"
+    },
+    "cat_math_1772668292754": {
+      "stroke": "#2b00ff",
+      "glow": "rgba(43,0,255,0.5)",
+      "text": "#2b00ff"
+    },
+    "cat_math_1772668575239": {
+      "stroke": "#330aff",
+      "glow": "rgba(51,10,255,0.5)",
+      "text": "#330aff"
+    },
+    "cat_ssss_1772668579967": {
+      "stroke": "#330aff",
+      "glow": "rgba(51,10,255,0.5)",
+      "text": "#330aff"
+    }
+  },
+  "customCategories": [
+    {
+      "id": "cat_math_1772668575239",
+      "label": "Math",
+      "icon": "📌",
+      "color": "#330aff"
+    },
+    {
+      "id": "cat_ssss_1772668579967",
+      "label": "SSSS",
+      "icon": "📌",
+      "color": "#330aff"
+    }
+  ]
+}
