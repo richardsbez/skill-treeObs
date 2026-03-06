@@ -4,29 +4,49 @@
     "default": {
       "id": "default",
       "name": "My Skill Tree",
-      "points": 119,
+      "points": 118,
       "nodes": [
         {
           "id": "root",
           "name": "Fundação",
           "icon": "⭐",
           "description": "O início de toda jornada. Desbloqueie para acessar habilidades avançadas.",
-          "x": 317,
-          "y": 279,
-          "state": "unlocked",
-          "level": 1,
+          "x": 233,
+          "y": 445,
+          "state": "mastered",
+          "level": 3,
           "maxLevel": 3,
           "cost": 0,
           "requires": [],
-          "category": "cat_fisica_1772669579482"
+          "category": "cat_fisica_1772669579482",
+          "size": "large",
+          "iconId": "root"
         },
         {
-          "id": "skill_1772671152455",
-          "name": "sssss",
+          "id": "skill_1772672745137",
+          "name": "Physical",
           "icon": "⚡",
-          "description": "sss",
-          "x": 45,
-          "y": 174,
+          "description": "",
+          "x": 447,
+          "y": 144,
+          "state": "available",
+          "level": 0,
+          "maxLevel": 3,
+          "cost": 3,
+          "requires": [
+            "root"
+          ],
+          "category": "cat_fisica_1772669579482",
+          "size": "large",
+          "iconId": "skill_1772672745137"
+        },
+        {
+          "id": "skill_1772755815212",
+          "name": "Mathematics",
+          "iconId": "star",
+          "description": "",
+          "x": 254,
+          "y": 142,
           "state": "available",
           "level": 0,
           "maxLevel": 3,
@@ -34,7 +54,76 @@
           "requires": [
             "root"
           ],
-          "category": "cat_fisica_1772669579482"
+          "category": "cat_fisica_1772669579482",
+          "size": "large"
+        },
+        {
+          "id": "skill_1772755869260",
+          "name": "Books",
+          "iconId": "star",
+          "description": "",
+          "x": 69,
+          "y": 144,
+          "state": "available",
+          "level": 0,
+          "maxLevel": 3,
+          "cost": 2,
+          "requires": [
+            "root"
+          ],
+          "category": "cat_fisica_1772669579482",
+          "size": "large"
+        },
+        {
+          "id": "skill_1772755925291",
+          "name": "Facultatis",
+          "iconId": "star",
+          "description": "",
+          "x": -128,
+          "y": 144,
+          "state": "available",
+          "level": 0,
+          "maxLevel": 3,
+          "cost": 2,
+          "requires": [
+            "root"
+          ],
+          "category": "cat_fisica_1772669579482",
+          "size": "large"
+        },
+        {
+          "id": "skill_1772755989531",
+          "name": "Cybersecurity",
+          "iconId": "star",
+          "description": "",
+          "x": 649,
+          "y": 145,
+          "state": "available",
+          "level": 0,
+          "maxLevel": 3,
+          "cost": 2,
+          "requires": [
+            "root"
+          ],
+          "category": "cat_cybersecurity_1772756124673",
+          "size": "large"
+        },
+        {
+          "id": "skill_1772756016714",
+          "name": "Languages",
+          "iconId": "star",
+          "description": "",
+          "x": -321,
+          "y": 155,
+          "state": "available",
+          "level": 0,
+          "maxLevel": 3,
+          "cost": 2,
+          "requires": [
+            "root"
+          ],
+          "category": "cat_fisica_1772669579482",
+          "size": "large"
         }
       ],
       "flipped": false,
@@ -82,7 +171,7 @@
       "id": "cat_fisica_1772669579482",
       "label": "FISICA",
       "icon": "AA",
-      "color": "#ff0000",
+      "color": "#ffffff",
       "builtIn": false
     },
     {
@@ -91,15 +180,22 @@
       "icon": "📌Math",
       "color": "#7b61ff",
       "builtIn": false
+    },
+    {
+      "id": "cat_cybersecurity_1772756124673",
+      "label": "Cybersecurity",
+      "icon": "",
+      "color": "#00ff9d",
+      "builtIn": false
     }
   ],
   "uiColors": {
-    "background": "#080c10",
-    "hudBg": "#0d1520",
-    "toolbarBg": "#0d1520",
-    "panelBg": "#080c10",
-    "nodeCircleBg": "#0e141c",
-    "pointsColor": "#e8d96a",
+    "background": "#000913",
+    "hudBg": "rgba(0,9,19,0.85)",
+    "toolbarBg": "rgba(0,9,19,0.85)",
+    "panelBg": "#000913",
+    "nodeCircleBg": "#060f1a",
+    "pointsColor": "#e8c84a",
     "unlockedColor": "#4dd9e8",
     "masteredColor": "#e05252"
   },
@@ -118,8 +214,8 @@
     "totalDone": 0
   },
   "dailySkill": {
-    "key": "2026-3-4",
-    "nodeId": "skill_1772666176381"
+    "key": "2026-3-5",
+    "nodeId": "skill_1772672745137"
   },
   "dailyUsed": true,
   "catColors": {

@@ -465,3 +465,4 @@
 .skill-panel::-webkit-scrollbar       { width: 4px; }
 .skill-panel::-webkit-scrollbar-track { background: transparent; }
 .skill-panel::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
