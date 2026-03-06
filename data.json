@@ -4,15 +4,15 @@
     "default": {
       "id": "default",
       "name": "My Skill Tree",
-      "points": 118,
+      "points": 89,
       "nodes": [
         {
           "id": "root",
           "name": "Fundação",
           "icon": "⭐",
           "description": "O início de toda jornada. Desbloqueie para acessar habilidades avançadas.",
-          "x": 233,
-          "y": 445,
+          "x": 222,
+          "y": 434,
           "state": "mastered",
           "level": 3,
           "maxLevel": 3,
@@ -27,10 +27,10 @@
           "name": "Physical",
           "icon": "⚡",
           "description": "",
-          "x": 447,
-          "y": 144,
-          "state": "available",
-          "level": 0,
+          "x": 449,
+          "y": 143,
+          "state": "mastered",
+          "level": 3,
           "maxLevel": 3,
           "cost": 3,
           "requires": [
@@ -45,16 +45,16 @@
           "name": "Mathematics",
           "iconId": "star",
           "description": "",
-          "x": 254,
+          "x": 253,
           "y": 142,
-          "state": "available",
-          "level": 0,
+          "state": "mastered",
+          "level": 3,
           "maxLevel": 3,
           "cost": 2,
           "requires": [
             "root"
           ],
-          "category": "cat_fisica_1772669579482",
+          "category": "cat_math_1772671074464",
           "size": "large"
         },
         {
@@ -64,14 +64,14 @@
           "description": "",
           "x": 69,
           "y": 144,
-          "state": "available",
-          "level": 0,
+          "state": "mastered",
+          "level": 3,
           "maxLevel": 3,
           "cost": 2,
           "requires": [
             "root"
           ],
-          "category": "cat_fisica_1772669579482",
+          "category": "cat_books_1772780912136",
           "size": "large"
         },
         {
@@ -79,16 +79,16 @@
           "name": "Facultatis",
           "iconId": "star",
           "description": "",
-          "x": -128,
-          "y": 144,
-          "state": "available",
-          "level": 0,
+          "x": -129,
+          "y": 143,
+          "state": "mastered",
+          "level": 3,
           "maxLevel": 3,
           "cost": 2,
           "requires": [
             "root"
           ],
-          "category": "cat_fisica_1772669579482",
+          "category": "cat_facultatis_1772780876698",
           "size": "large"
         },
         {
@@ -98,8 +98,8 @@
           "description": "",
           "x": 649,
           "y": 145,
-          "state": "available",
-          "level": 0,
+          "state": "mastered",
+          "level": 3,
           "maxLevel": 3,
           "cost": 2,
           "requires": [
@@ -113,17 +113,66 @@
           "name": "Languages",
           "iconId": "star",
           "description": "",
-          "x": -321,
-          "y": 155,
-          "state": "available",
-          "level": 0,
+          "x": -449,
+          "y": 182,
+          "state": "mastered",
+          "level": 3,
+          "maxLevel": 3,
+          "cost": 2,
+          "requires": [
+            "root",
+            "skill_1772781308198",
+            "skill_1772781298662"
+          ],
+          "category": "cat_languages_1772780831027",
+          "size": "large"
+        },
+        {
+          "id": "skill_1772781201137",
+          "name": "Corpus",
+          "iconId": "star",
+          "description": "",
+          "x": 808,
+          "y": 144,
+          "state": "mastered",
+          "level": 3,
           "maxLevel": 3,
           "cost": 2,
           "requires": [
             "root"
           ],
-          "category": "cat_fisica_1772669579482",
+          "category": "cat_corpus_1772781210105",
           "size": "large"
+        },
+        {
+          "id": "skill_1772781298662",
+          "name": "Latim",
+          "iconId": "star",
+          "description": "",
+          "x": -347,
+          "y": 99,
+          "state": "unlocked",
+          "level": 1,
+          "maxLevel": 3,
+          "cost": 2,
+          "requires": [],
+          "category": "cat_languages_1772780831027",
+          "size": "medium"
+        },
+        {
+          "id": "skill_1772781308198",
+          "name": "English",
+          "iconId": "star",
+          "description": "",
+          "x": -557,
+          "y": 101,
+          "state": "unlocked",
+          "level": 1,
+          "maxLevel": 3,
+          "cost": 2,
+          "requires": [],
+          "category": "cat_languages_1772780831027",
+          "size": "medium"
         }
       ],
       "flipped": false,
@@ -176,9 +225,9 @@
     },
     {
       "id": "cat_math_1772671074464",
-      "label": "MATH",
+      "label": "Math",
       "icon": "📌Math",
-      "color": "#7b61ff",
+      "color": "#80ffe5",
       "builtIn": false
     },
     {
@@ -186,6 +235,34 @@
       "label": "Cybersecurity",
       "icon": "",
       "color": "#00ff9d",
+      "builtIn": false
+    },
+    {
+      "id": "cat_languages_1772780831027",
+      "label": "Languages",
+      "icon": "",
+      "color": "#b90404",
+      "builtIn": false
+    },
+    {
+      "id": "cat_facultatis_1772780876698",
+      "label": "Facultatis",
+      "icon": "",
+      "color": "#00fbff",
+      "builtIn": false
+    },
+    {
+      "id": "cat_books_1772780912136",
+      "label": "Books",
+      "icon": "",
+      "color": "#cc9600",
+      "builtIn": false
+    },
+    {
+      "id": "cat_corpus_1772781210105",
+      "label": "Corpus",
+      "icon": "",
+      "color": "#775cff",
       "builtIn": false
     }
   ],
@@ -214,7 +291,7 @@
     "totalDone": 0
   },
   "dailySkill": {
-    "key": "2026-3-5",
+    "key": "2026-3-6",
     "nodeId": "skill_1772672745137"
   },
   "dailyUsed": true,

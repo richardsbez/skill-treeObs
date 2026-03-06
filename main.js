@@ -598,8 +598,18 @@ const MODAL_CSS_V2 = `
   padding: 0 !important;
   overflow: hidden;
   border-radius: 4px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
 }
-.skill-modal-v2 .modal-content { padding: 0 !important; background: #000913 !important; }
+.skill-modal-v2 .modal-content { 
+  padding: 0 !important; 
+  background: #000913 !important;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
 .skill-modal-v2 .modal-close-button { color: rgba(255,255,255,0.3); top: 14px; right: 14px; z-index: 10; }
 .skill-modal-v2 .modal-close-button:hover { color: #fff; }
 
@@ -675,8 +685,11 @@ const MODAL_CSS_V2 = `
 .smv2-body {
   padding: 16px 20px 6px;
   overflow-y: auto;
-  max-height: calc(100vh - 290px);
-  display: flex; flex-direction: column; gap: 13px;
+  flex: 1;
+  min-height: 0;   
+  display: flex; 
+  flex-direction: column; 
+  gap: 13px;
 }
 .smv2-body::-webkit-scrollbar { width: 3px; }
 .smv2-body::-webkit-scrollbar-track { background: transparent; }
@@ -836,6 +849,7 @@ const MODAL_CSS_V2 = `
 
 /* Footer */
 .smv2-footer {
+flex-shrink: 0;
   display: flex; align-items: center; justify-content: space-between;
   padding: 11px 20px 15px;
   border-top: 1px solid rgba(255,255,255,0.05);
@@ -857,6 +871,136 @@ const MODAL_CSS_V2 = `
 .smv2-btn.danger:hover { background: rgba(224,82,82,0.14); }
 .smv2-btn.ghost     { background: transparent; color: rgba(255,255,255,0.22); border-color: rgba(255,255,255,0.07); font-size: 8px; }
 .smv2-btn.ghost:hover { color: rgba(255,255,255,0.48); border-color: rgba(255,255,255,0.18); }
+.smv2-cat-list { display:flex; flex-direction:column; gap:4px; }
+.smv2-cat-item {
+  display:flex; align-items:center; gap:9px; padding:7px 10px; border-radius:3px;
+  border:1px solid rgba(255,255,255,0.06); background:rgba(255,255,255,0.02); transition:background 0.12s;
+}
+.smv2-cat-item:hover { background:rgba(255,255,255,0.04); }
+.smv2-cat-item.builtin { border-left:2px solid rgba(255,255,255,0.1); }
+.smv2-cat-swatch {
+  width:24px; height:24px; border-radius:50%;
+  border:2px solid rgba(255,255,255,0.2); flex-shrink:0;
+  position:relative; overflow:hidden; cursor:pointer; transition:transform 0.14s;
+}
+.smv2-cat-swatch:hover { transform:scale(1.15); }
+.smv2-cat-swatch input[type=color] { position:absolute; inset:-4px; opacity:0; cursor:pointer; width:calc(100% + 8px); height:calc(100% + 8px); }
+.smv2-cat-name-edit {
+  flex:1; background:transparent; border:none;
+  border-bottom:1px solid rgba(255,255,255,0.07);
+  color:rgba(255,255,255,0.8); font-size:12px; font-weight:700;
+  font-family:'Share Tech Mono',monospace; padding:3px 4px; outline:none;
+  transition:border-color 0.14s; min-width:0; letter-spacing:0.08em;
+}
+.smv2-cat-name-edit:focus { border-bottom-color:rgba(255,255,255,0.3); }
+.smv2-cat-inuse-tag {
+  font-size:7px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase;
+  font-family:'Share Tech Mono',monospace; color:rgba(255,200,80,0.55);
+  white-space:nowrap; flex-shrink:0; padding:2px 6px;
+  border:1px solid rgba(255,200,80,0.18); border-radius:2px; background:rgba(255,200,80,0.04);
+}
+.smv2-cat-del {
+  width:22px; height:22px; border-radius:2px; flex-shrink:0;
+  border:1px solid rgba(224,82,82,0.2); background:transparent;
+  color:rgba(224,82,82,0.45); cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+  font-size:13px; transition:all 0.12s; padding:0; line-height:1;
+}
+.smv2-cat-del:hover { background:rgba(224,82,82,0.14); color:#e05252; border-color:rgba(224,82,82,0.5); }
+.smv2-cat-del:disabled { opacity:0.18; cursor:not-allowed; }
+.smv2-cat-add-row {
+  display:flex; align-items:center; gap:8px; padding:8px 10px; border-radius:3px;
+  border:1px dashed rgba(255,255,255,0.09); background:transparent; margin-top:4px;
+}
+.smv2-cat-add-swatch {
+  width:24px; height:24px; border-radius:50%;
+  border:2px solid rgba(255,255,255,0.2); flex-shrink:0;
+  position:relative; overflow:hidden; cursor:pointer; transition:transform 0.14s;
+}
+.smv2-cat-add-swatch:hover { transform:scale(1.12); }
+.smv2-cat-add-swatch input[type=color] { position:absolute; inset:-4px; opacity:0; cursor:pointer; width:calc(100% + 8px); height:calc(100% + 8px); }
+.smv2-cat-add-input {
+  flex:1; background:transparent; border:none;
+  border-bottom:1px solid rgba(255,255,255,0.1);
+  color:rgba(255,255,255,0.6); font-size:11px; font-weight:700;
+  font-family:'Share Tech Mono',monospace; padding:3px 4px; outline:none; transition:border-color 0.14s;
+}
+.smv2-cat-add-input:focus { border-bottom-color:rgba(255,255,255,0.28); }
+.smv2-cat-add-input::placeholder { color:rgba(255,255,255,0.18); }
+.smv2-cat-add-btn {
+  padding:4px 12px; border-radius:2px;
+  border:1px solid rgba(232,200,74,0.28); background:rgba(232,200,74,0.06);
+  color:#e8c84a; cursor:pointer; font-size:9px; font-weight:700;
+  letter-spacing:0.12em; text-transform:uppercase;
+  font-family:'Share Tech Mono',monospace; white-space:nowrap; transition:background 0.14s;
+}
+.smv2-cat-add-btn:hover { background:rgba(232,200,74,0.14); }
+
+/* ══ POMODORO MODAL V2 ══ */
+.smv2-pomo-time-row { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+.smv2-pomo-time-box {
+  display:flex; flex-direction:column; align-items:center; gap:4px;
+  padding:12px 8px; border-radius:3px;
+  border:1px solid rgba(255,255,255,0.07); background:rgba(255,255,255,0.02);
+}
+.smv2-pomo-time-lbl {
+  font-size:7px; font-weight:700; letter-spacing:0.22em; text-transform:uppercase;
+  font-family:'Share Tech Mono',monospace; color:rgba(255,255,255,0.2);
+}
+.smv2-pomo-time-val {
+  font-size:32px; font-weight:700; letter-spacing:0.04em;
+  font-family:'Share Tech Mono',monospace; color:#e8c84a; line-height:1;
+}
+.smv2-pomo-time-val.break { color:#4dd9e8; }
+.smv2-pomo-stepper { display:flex; align-items:center; gap:5px; margin-top:3px; }
+.smv2-pomo-step {
+  width:22px; height:22px; border-radius:2px;
+  border:1px solid rgba(255,255,255,0.1); background:rgba(255,255,255,0.03);
+  color:rgba(255,255,255,0.45); cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+  font-size:15px; line-height:1; padding:0; transition:all 0.12s;
+}
+.smv2-pomo-step:hover { border-color:rgba(255,255,255,0.3); color:#fff; background:rgba(255,255,255,0.07); }
+.smv2-pomo-free {
+  display:flex; align-items:center; gap:8px; padding:7px 10px; border-radius:3px;
+  border:1px dashed rgba(255,255,255,0.1); cursor:pointer; transition:all 0.13s; margin-bottom:5px;
+}
+.smv2-pomo-free:hover { border-color:rgba(255,255,255,0.25); }
+.smv2-pomo-free.selected { border-style:solid; border-color:#b48aff; background:rgba(180,138,255,0.06); }
+.smv2-pomo-free-icon { font-size:15px; line-height:1; }
+.smv2-pomo-free-lbl {
+  font-size:10px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase;
+  font-family:'Share Tech Mono',monospace; color:rgba(255,255,255,0.3); flex:1;
+}
+.smv2-pomo-free.selected .smv2-pomo-free-lbl { color:#b48aff; }
+.smv2-pomo-grid {
+  display:grid; grid-template-columns:repeat(3,1fr);
+  gap:5px; max-height:160px; overflow-y:auto; padding:2px;
+}
+.smv2-pomo-grid::-webkit-scrollbar { width:3px; }
+.smv2-pomo-grid::-webkit-scrollbar-thumb { background:rgba(255,255,255,0.1); }
+.smv2-pomo-node {
+  display:flex; align-items:center; gap:6px; padding:6px 7px; border-radius:3px;
+  border:1px solid rgba(255,255,255,0.06); background:rgba(255,255,255,0.02);
+  cursor:pointer; transition:all 0.12s; min-width:0;
+}
+.smv2-pomo-node:hover { border-color:rgba(255,255,255,0.18); background:rgba(255,255,255,0.04); }
+.smv2-pomo-node.selected { border-color:#e05252; background:rgba(224,82,82,0.07); }
+.smv2-pomo-node-ic {
+  width:20px; height:20px; border-radius:50%; flex-shrink:0;
+  border:1.5px solid rgba(255,255,255,0.14); background:rgba(6,15,26,0.9);
+  display:flex; align-items:center; justify-content:center;
+  color:rgba(255,255,255,0.28); transition:all 0.12s;
+}
+.smv2-pomo-node-ic svg { width:10px; height:10px; pointer-events:none; }
+.smv2-pomo-node.selected .smv2-pomo-node-ic { border-color:#e05252; color:#e05252; }
+.smv2-pomo-node-nm {
+  font-size:9px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase;
+  font-family:'Share Tech Mono',monospace; color:rgba(255,255,255,0.32);
+  white-space:nowrap; overflow:hidden; text-overflow:ellipsis; flex:1; transition:color 0.12s;
+}
+.smv2-pomo-node.selected .smv2-pomo-node-nm { color:#e05252; }
+
 `;
 
 
@@ -1719,62 +1863,138 @@ function renderSizePicker(container, currentSize, onChange) {
 }
 
 // ─── Category Modal ───────────────────────────────────────────────────────────
+
 class CategoryModal extends Modal {
   constructor(app, allCategories, allNodes, onSave) {
     super(app);
     this.categories = JSON.parse(JSON.stringify(allCategories));
-    this.allNodes = allNodes; this.onSave = onSave;
+    this.allNodes = allNodes;
+    this.onSave = onSave;
   }
-  getUsedCategoryIds() { const used = new Set(); this.allNodes.forEach(n => used.add(n.category)); return used; }
+
+  getUsedCategoryIds() {
+    const used = new Set();
+    this.allNodes.forEach(n => used.add(n.category));
+    return used;
+  }
+
   onOpen() {
-    const { contentEl } = this; contentEl.empty(); contentEl.addClass('skill-modal');
-    contentEl.createEl('h2', { text: 'CATEGORIAS' });
-    const listEl = contentEl.createDiv();
+    const { contentEl } = this;
+    contentEl.empty();
+    contentEl.addClass('skill-modal-v2');
+    injectModalV2CSS();
+
+    // ── Header ──
+    const hdr = contentEl.createDiv({ cls: 'smv2-header' });
+    hdr.createDiv({ cls: 'smv2-title', text: 'CATEGORIAS' });
+    const countEl = hdr.createDiv({ cls: 'smv2-id' });
+
+    // ── Body ──
+    const body = contentEl.createDiv({ cls: 'smv2-body' });
+    body.style.maxHeight = 'calc(100vh - 190px)';
+    const listWrap = body.createDiv();
+
     const renderList = () => {
-      listEl.empty();
-      const builtIns = this.categories.filter(c => c.builtIn);
+      listWrap.empty();
+      countEl.textContent = `${this.categories.length} categorias`;
+      const used = this.getUsedCategoryIds();
+      const builtins = this.categories.filter(c => c.builtIn);
       const customs = this.categories.filter(c => !c.builtIn);
-      if (builtIns.length) { listEl.createDiv({ cls: 'skill-cat-section-header', text: 'Padrão' }); builtIns.forEach(cat => this.renderCatRow(listEl, cat, renderList)); }
-      if (customs.length) { listEl.createDiv({ cls: 'skill-cat-section-header', text: 'Customizadas' }); customs.forEach(cat => this.renderCatRow(listEl, cat, renderList)); }
-      if (!this.categories.length) listEl.createDiv({ cls: 'skill-modal-empty', text: 'Adicione pelo menos uma!' });
+
+      const renderSection = (items, sectionLabel) => {
+        if (!items.length) return;
+        const lbl = listWrap.createDiv({ cls: 'smv2-label', text: sectionLabel });
+        lbl.style.marginBottom = '6px';
+        const list = listWrap.createDiv({ cls: 'smv2-cat-list' });
+        list.style.marginBottom = '10px';
+        items.forEach(cat => this._renderItem(list, cat, used, renderList));
+      };
+
+      renderSection(builtins, 'Padrão');
+      renderSection(customs, 'Customizadas');
+
+      if (!this.categories.length) {
+        const empty = listWrap.createDiv({ cls: 'smv2-req-empty', text: 'Adicione pelo menos uma categoria.' });
+        empty.style.padding = '8px 0';
+      }
+
+      // Add row
+      const addLbl = listWrap.createDiv({ cls: 'smv2-label', text: '+ Nova Categoria' });
+      addLbl.style.marginTop = '4px';
+      const addRow = listWrap.createDiv({ cls: 'smv2-cat-add-row' });
+      let newColor = '#7b61ff';
+
+      const swatchWrap = addRow.createDiv({ cls: 'smv2-cat-add-swatch' });
+      swatchWrap.style.background = newColor;
+      const colorIn = swatchWrap.createEl('input');
+      colorIn.type = 'color'; colorIn.value = newColor;
+      colorIn.addEventListener('input', e => { newColor = e.target.value; swatchWrap.style.background = newColor; });
+
+      const nameIn = addRow.createEl('input', { cls: 'smv2-cat-add-input' });
+      nameIn.placeholder = 'Nome da categoria...';
+
+      const addBtn = addRow.createEl('button', { cls: 'smv2-cat-add-btn', text: '+ ADD' });
+      const doAdd = () => {
+        const name = nameIn.value.trim();
+        if (!name) { new Notice('Nome obrigatório.'); return; }
+        const id = 'cat_' + name.toLowerCase().replace(/\s+/g, '_') + '_' + Date.now();
+        this.categories.push({ id, label: name, icon: '', color: newColor, builtIn: false });
+        nameIn.value = '';
+        renderList();
+      };
+      addBtn.addEventListener('click', doAdd);
+      nameIn.addEventListener('keydown', e => { if (e.key === 'Enter') doAdd(); });
     };
+
     renderList();
-    const formWrap = contentEl.createDiv();
-    formWrap.style.cssText = 'margin-top:16px;padding-top:12px;border-top:1px solid rgba(255,255,255,0.06);';
-    formWrap.createDiv({ cls: 'skill-cat-section-header', text: '+ Nova Categoria' });
-    const addRow = formWrap.createDiv({ cls: 'skill-cat-add-row' });
-    const colorWrap = addRow.createDiv({ cls: 'skill-cat-color-dot' });
-    let newColor = '#7b61ff'; colorWrap.style.background = newColor;
-    const colorIn = colorWrap.createEl('input'); colorIn.type = 'color'; colorIn.value = newColor;
-    colorIn.addEventListener('input', e => { newColor = e.target.value; colorWrap.style.background = newColor; });
-    const nameIn = addRow.createEl('input', { cls: 'skill-cat-input', placeholder: 'Nome...' });
-    const addBtn = addRow.createEl('button', { cls: 'skill-cat-add-btn', text: '+ ADD' });
-    addBtn.addEventListener('click', () => {
-      const name = nameIn.value.trim(); if (!name) { new Notice('Nome obrigatório.'); return; }
-      const id = 'cat_' + name.toLowerCase().replace(/\s+/g, '_') + '_' + Date.now();
-      this.categories.push({ id, label: name, icon: '', color: newColor, builtIn: false });
-      nameIn.value = ''; renderList();
-    });
-    const actions = contentEl.createDiv({ cls: 'skill-modal-actions' });
-    actions.createEl('button', { cls: 'skill-modal-btn secondary', text: 'Cancelar' }).addEventListener('click', () => this.close());
-    actions.createEl('button', { cls: 'skill-modal-btn primary', text: 'Salvar' }).addEventListener('click', () => { if (!this.categories.length) { new Notice('Precisa de pelo menos uma categoria.'); return; } this.onSave(this.categories); this.close(); new Notice('Categorias salvas!'); });
+
+    // ── Footer ──
+    const footer = contentEl.createDiv({ cls: 'smv2-footer' });
+    footer.createDiv({ cls: 'smv2-footer-left' });
+    const right = footer.createDiv({ cls: 'smv2-footer-right' });
+    right.createEl('button', { cls: 'smv2-btn secondary', text: 'Cancelar' })
+      .addEventListener('click', () => this.close());
+    right.createEl('button', { cls: 'smv2-btn primary', text: 'Salvar' })
+      .addEventListener('click', () => {
+        if (!this.categories.length) { new Notice('Precisa de pelo menos uma categoria.'); return; }
+        this.onSave(this.categories);
+        this.close();
+        new Notice('Categorias salvas!');
+      });
   }
-  renderCatRow(container, cat, onUpdate) {
-    const usedIds = this.getUsedCategoryIds();
+
+  _renderItem(container, cat, usedIds, onUpdate) {
     const isInUse = usedIds.has(cat.id);
     const isOnly = this.categories.length <= 1;
-    const row = container.createDiv({ cls: `skill-cat-row${cat.builtIn ? ' builtin-row' : ''}` });
-    const dot = row.createDiv({ cls: 'skill-cat-color-dot' }); dot.style.background = cat.color || '#e8c84a';
-    const colorIn = dot.createEl('input'); colorIn.type = 'color'; colorIn.value = (cat.color?.startsWith('#')) ? cat.color : '#e8c84a';
-    colorIn.addEventListener('input', e => { cat.color = e.target.value; dot.style.background = cat.color; });
-    const nameIn = row.createEl('input', { cls: 'skill-cat-name-input' }); nameIn.value = cat.label;
+    const canDel = !isOnly && !isInUse;
+
+    const item = container.createDiv({ cls: `smv2-cat-item${cat.builtIn ? ' builtin' : ''}` });
+
+    const swatch = item.createDiv({ cls: 'smv2-cat-swatch' });
+    swatch.style.background = cat.color || '#e8c84a';
+    const colorIn = swatch.createEl('input');
+    colorIn.type = 'color';
+    colorIn.value = cat.color?.startsWith('#') ? cat.color : '#e8c84a';
+    colorIn.addEventListener('input', e => { cat.color = e.target.value; swatch.style.background = cat.color; });
+
+    const nameIn = item.createEl('input', { cls: 'smv2-cat-name-edit' });
+    nameIn.value = cat.label;
     nameIn.addEventListener('input', e => { cat.label = e.target.value || cat.label; });
-    if (isInUse) row.createDiv({ cls: 'skill-cat-inuse', text: 'em uso' });
-    const canDelete = !isOnly && !isInUse;
-    const delBtn = row.createEl('button', { cls: 'skill-cat-del-btn', text: 'X' }); delBtn.disabled = !canDelete;
-    delBtn.title = isOnly ? 'Precisa de pelo menos uma categoria' : isInUse ? 'Reatribua as skills antes de deletar' : 'Deletar';
-    delBtn.addEventListener('click', () => { if (!canDelete) { new Notice(isInUse ? 'Em uso — reatribua primeiro.' : 'Precisa de pelo menos uma.'); return; } const idx = this.categories.indexOf(cat); if (idx >= 0) { this.categories.splice(idx, 1); onUpdate(); } });
+
+    if (isInUse) item.createDiv({ cls: 'smv2-cat-inuse-tag', text: 'em uso' });
+
+    const delBtn = item.createEl('button', { cls: 'smv2-cat-del', text: '×' });
+    delBtn.disabled = !canDel;
+    delBtn.title = isOnly
+      ? 'Precisa de pelo menos uma categoria'
+      : isInUse ? 'Reatribua as skills antes de deletar' : 'Deletar';
+    delBtn.addEventListener('click', () => {
+      if (!canDel) { new Notice(isInUse ? 'Em uso — reatribua primeiro.' : 'Precisa de pelo menos uma.'); return; }
+      const idx = this.categories.indexOf(cat);
+      if (idx >= 0) { this.categories.splice(idx, 1); onUpdate(); }
+    });
   }
+
   onClose() { this.contentEl.empty(); }
 }
 
@@ -2088,21 +2308,114 @@ class EditNodeModal extends Modal {
 }
 
 // ─── Pomodoro Modal ───────────────────────────────────────────────────────────
+
 class PomodoroSetupModal extends Modal {
-  constructor(app, nodes, pomo, onStart) { super(app); this.nodes = nodes; this.pomo = pomo; this.onStart = onStart; }
-  onOpen() {
-    const { contentEl } = this; contentEl.empty(); contentEl.addClass('skill-modal');
-    contentEl.createEl('h2', { text: 'MODO FOCO' });
-    let nodeId = this.pomo.targetNodeId || '', workMin = this.pomo.workMin || 25, breakMin = this.pomo.breakMin || 5;
-    new Setting(contentEl).setName('Skill de foco').addDropdown(d => { d.addOption('', 'Foco Livre'); this.nodes.filter(n => n.id !== 'conditioning' && n.id !== 'mobility' && n.id !== 'survival').forEach(n => d.addOption(n.id, n.name)); d.setValue(nodeId); d.onChange(v => nodeId = v); });
-    new Setting(contentEl).setName('Foco (min)').addSlider(s => { s.setLimits(5, 60, 5).setValue(workMin).setDynamicTooltip().onChange(v => workMin = v); });
-    new Setting(contentEl).setName('Pausa (min)').addSlider(s => { s.setLimits(1, 30, 1).setValue(breakMin).setDynamicTooltip().onChange(v => breakMin = v); });
-    const actions = contentEl.createDiv({ cls: 'skill-modal-actions' });
-    actions.createEl('button', { cls: 'skill-modal-btn secondary', text: 'Cancelar' }).addEventListener('click', () => this.close());
-    actions.createEl('button', { cls: 'skill-modal-btn primary', text: 'Iniciar' }).addEventListener('click', () => { this.onStart(nodeId || null, workMin, breakMin); this.close(); });
+  constructor(app, nodes, pomo, onStart) {
+    super(app);
+    this.nodes = nodes;
+    this.pomo = pomo;
+    this.onStart = onStart;
   }
+
+  onOpen() {
+    const { contentEl } = this;
+    contentEl.empty();
+    contentEl.addClass('skill-modal-v2');
+    injectModalV2CSS();
+
+    let selectedId = this.pomo.targetNodeId || null;
+    let workMin = this.pomo.workMin || 25;
+    let breakMin = this.pomo.breakMin || 5;
+
+    const ROOTS = ['conditioning', 'mobility', 'survival'];
+    const pickable = this.nodes.filter(n => !ROOTS.includes(n.id));
+
+    // ── Header ──
+    const hdr = contentEl.createDiv({ cls: 'smv2-header' });
+    hdr.createDiv({ cls: 'smv2-title', text: 'MODO FOCO' });
+
+    // ── Body ──
+    const body = contentEl.createDiv({ cls: 'smv2-body' });
+    body.style.maxHeight = 'calc(100vh - 190px)';
+
+    // — Duration —
+    const timeField = body.createDiv({ cls: 'smv2-field' });
+    timeField.createDiv({ cls: 'smv2-label', text: 'Duração' });
+    const timeRow = timeField.createDiv({ cls: 'smv2-pomo-time-row' });
+
+    const mkStep = (parent, label, delta, valEl, getV, setV, min, max) => {
+      const btn = parent.createEl('button', { cls: 'smv2-pomo-step', text: label });
+      btn.addEventListener('click', () => {
+        const next = Math.min(Math.max(getV() + delta, min), max);
+        setV(next); valEl.textContent = String(next);
+      });
+    };
+
+    // Work
+    const workBox = timeRow.createDiv({ cls: 'smv2-pomo-time-box' });
+    workBox.createDiv({ cls: 'smv2-pomo-time-lbl', text: 'Foco (min)' });
+    const workVal = workBox.createDiv({ cls: 'smv2-pomo-time-val', text: String(workMin) });
+    const ws = workBox.createDiv({ cls: 'smv2-pomo-stepper' });
+    mkStep(ws, '−', -5, workVal, () => workMin, v => { workMin = v; }, 5, 90);
+    mkStep(ws, '+', +5, workVal, () => workMin, v => { workMin = v; }, 5, 90);
+
+    // Break
+    const breakBox = timeRow.createDiv({ cls: 'smv2-pomo-time-box' });
+    breakBox.createDiv({ cls: 'smv2-pomo-time-lbl', text: 'Pausa (min)' });
+    const breakVal = breakBox.createDiv({ cls: 'smv2-pomo-time-val break', text: String(breakMin) });
+    const bs = breakBox.createDiv({ cls: 'smv2-pomo-stepper' });
+    mkStep(bs, '−', -1, breakVal, () => breakMin, v => { breakMin = v; }, 1, 30);
+    mkStep(bs, '+', +1, breakVal, () => breakMin, v => { breakMin = v; }, 1, 30);
+
+    // — Skill selector —
+    const skillField = body.createDiv({ cls: 'smv2-field' });
+    skillField.createDiv({ cls: 'smv2-label', text: 'Skill de Foco' });
+
+    const freeOpt = skillField.createDiv({
+      cls: `smv2-pomo-free${selectedId === null ? ' selected' : ''}`
+    });
+    freeOpt.createDiv({ cls: 'smv2-pomo-free-icon', text: '🍅' });
+    freeOpt.createDiv({ cls: 'smv2-pomo-free-lbl', text: 'Foco Livre' });
+    freeOpt.addEventListener('click', () => { selectedId = null; refresh(); });
+
+    const grid = skillField.createDiv({ cls: 'smv2-pomo-grid' });
+
+    const refresh = () => {
+      freeOpt.classList.toggle('selected', selectedId === null);
+      grid.querySelectorAll('.smv2-pomo-node').forEach(el => {
+        el.classList.toggle('selected', el.dataset.nid === selectedId);
+      });
+    };
+
+    pickable.forEach(node => {
+      const item = grid.createDiv({
+        cls: `smv2-pomo-node${selectedId === node.id ? ' selected' : ''}`
+      });
+      item.dataset.nid = node.id;
+      const ic = item.createDiv({ cls: 'smv2-pomo-node-ic' });
+      ic.innerHTML = getIcon(node.iconId || node.id);
+      const sv = ic.querySelector('svg');
+      if (sv) { sv.style.width = '10px'; sv.style.height = '10px'; }
+      item.createDiv({ cls: 'smv2-pomo-node-nm', text: node.name });
+      item.addEventListener('click', () => { selectedId = node.id; refresh(); });
+    });
+
+    // ── Footer ──
+    const footer = contentEl.createDiv({ cls: 'smv2-footer' });
+    footer.createDiv({ cls: 'smv2-footer-left' });
+    const right = footer.createDiv({ cls: 'smv2-footer-right' });
+    right.createEl('button', { cls: 'smv2-btn secondary', text: 'Cancelar' })
+      .addEventListener('click', () => this.close());
+    right.createEl('button', { cls: 'smv2-btn primary', text: 'Iniciar' })
+      .addEventListener('click', () => {
+        this.onStart(selectedId, workMin, breakMin);
+        this.close();
+      });
+  }
+
   onClose() { this.contentEl.empty(); }
 }
+
 
 // ─── Settings Tab ─────────────────────────────────────────────────────────────
 class SkillTreeSettingTab extends PluginSettingTab {
